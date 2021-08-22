@@ -5,10 +5,15 @@ import { BsGearFill } from 'react-icons/bs'
 import myInfo from '../../data/myInfo.json'
 import ProfileItem from '../../components/ProfileItem'
 import { RiVipDiamondFill, RiStoreFill, RiShieldFill, RiUserAddFill } from 'react-icons/ri'
+import { useHistory } from 'react-router-dom'
+import { PATHS } from '../../constants/paths'
 
 const ICON_SIZE = 18
 
 const Profile = () => {
+
+    const history = useHistory()
+
     return (
         <Layout>
             <HeaderBox>
@@ -20,7 +25,7 @@ const Profile = () => {
                     <ProfileBox>
                         <Username>{myInfo.username}, {myInfo.age}</Username>
                         <Job>{myInfo.job} · {myInfo.region}</Job>
-                        <EditButton>프로필 수정</EditButton>
+                        <EditButton onClick={() => history.push(PATHS.PROFILE + PATHS.EDIT)}>프로필 수정</EditButton>
                     </ProfileBox>
                 </UserInfoBox>
                 <ProfileItem icon={<RiVipDiamondFill size={ICON_SIZE} color='red'/>} value='프로필 티어'/>
