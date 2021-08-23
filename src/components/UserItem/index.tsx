@@ -4,11 +4,11 @@ import { Container, ProfileImg, RecommendBox, UserInfoBox, ButtonBox, BlockButto
 import { BsStarFill, BsX } from 'react-icons/bs'
 
 interface Props extends UserItemProps {
-
+    onClickBlock: () => void
 }
 
 const UserItem: React.FC<Props> = ({
-    user, isRecommend, isBlocked, isLiked
+    user, isRecommend, isBlocked, isLiked, onClickBlock
 }) => {
     return (
         <Container>
@@ -25,7 +25,7 @@ const UserItem: React.FC<Props> = ({
                     <Introduce>{user.introduce}</Introduce>
                 )}
                 <ButtonBox>
-                    <BlockButton>
+                    <BlockButton onClick={onClickBlock}>
                         <BsX color='#ffffff' size={32}/>
                     </BlockButton>
                     <LikeButton>좋아요</LikeButton>

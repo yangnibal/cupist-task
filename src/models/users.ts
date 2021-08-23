@@ -10,10 +10,19 @@ export interface User {
     profileImg: string
 }
 
+export enum UserItemEnumType {
+    DEFAULT = 'DEFAULT',
+    PROFILE = 'PROFILE',
+    BOOST = 'BOOST',
+    RECOMMEND = 'RECOMMEND',
+    VALUATION = 'VALUATION'
+}
+
 export interface UserItemProps {
     user: User
     isRecommend: boolean
     isBlocked: boolean
     isLiked: boolean
     id: number
+    type: string
 }

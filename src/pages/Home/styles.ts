@@ -17,7 +17,7 @@ export const HeaderBox = styled.div`
 export const Glam = styled.p`
     font-weight: bold;
     color: #000000;
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 15px;
     height: 100%;
     display: flex;
@@ -26,10 +26,18 @@ export const Glam = styled.p`
     box-sizing: border-box;
 `
 
+export const HeaderText = styled.div`
+    font-size: 18px;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    color: rgb(157, 157, 157);
+`
+
 export const ListWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    row-gap: 5px;
+    row-gap: 10px;
     align-items: center;
     margin-top: 5px;
     padding-bottom: 75px;

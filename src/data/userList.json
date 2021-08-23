@@ -14,7 +14,8 @@
         "isRecommend": true,
         "isBlocked": false,
         "isLiked": false,
-        "id": 0
+        "id": 0,
+        "type": "DEFAULT"
     },
     {
         "user": {
@@ -31,6 +32,79 @@
         "isRecommend": true,
         "isBlocked": false,
         "isLiked": false,
-        "id": 1
+        "id": 1,
+        "type": "DEFAULT"
+    },
+    {
+        "user": {
+            "username": "파인애플",
+            "age": 20,
+            "job": "준비 중",
+            "region": "서울특별시",
+            "introduce": "운동 좋아해요",
+            "height": 168,
+            "school": "대학교",
+            "gender": "여",
+            "profileImg": "https://images.unsplash.com/photo-1536588086516-cf8b058a7aa0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGdpcmwlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        },
+        "isRecommend": true,
+        "isBlocked": false,
+        "isLiked": false,
+        "id": 2,
+        "type": "DEFAULT"
+    },
+    {
+        "user": {
+            "username": "사과",
+            "age": 28,
+            "job": "트레이너",
+            "region": "서울특별시",
+            "introduce": "",
+            "height": 158,
+            "school": "대학교",
+            "gender": "여",
+            "profileImg": "https://images.unsplash.com/photo-1579105728744-9d6b14a45389?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGdpcmwlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        },
+        "isRecommend": true,
+        "isBlocked": false,
+        "isLiked": false,
+        "id": 3,
+        "type": "DEFAULT"
+    },
+    {
+        "user": {
+            "username": "오렌지",
+            "age": 23,
+            "job": "서비스직",
+            "region": "서울특별시",
+            "introduce": "",
+            "height": 160,
+            "school": "대학교",
+            "gender": "여",
+            "profileImg": "https://images.unsplash.com/photo-1499557354967-2b2d8910bcca?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fGdpcmwlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        },
+        "isRecommend": true,
+        "isBlocked": false,
+        "isLiked": false,
+        "id": 4,
+        "type": "DEFAULT"
+    },
+    {
+        "user": {
+            "username": "복숭아",
+            "age": 25,
+            "job": "학생",
+            "region": "서울특별시",
+            "introduce": "",
+            "height": 150,
+            "school": "대학교",
+            "gender": "여",
+            "profileImg": "https://images.unsplash.com/photo-1557431968-2c43c8e896e6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fGdpcmwlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        },
+        "isRecommend": true,
+        "isBlocked": false,
+        "isLiked": false,
+        "id": 5,
+        "type": "DEFAULT"
     }
 ]

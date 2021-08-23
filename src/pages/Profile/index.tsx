@@ -21,7 +21,7 @@ const Profile = () => {
             </HeaderBox>
             <ContentBox>
                 <UserInfoBox>
-                    <ProfileImg src={myInfo.profileImg}/>
+                    <ProfileImg src={myInfo.profileImgs[0]}/>
                     <ProfileBox>
                         <Username>{myInfo.username}, {myInfo.age}</Username>
                         <Job>{myInfo.job} · {myInfo.region}</Job>
