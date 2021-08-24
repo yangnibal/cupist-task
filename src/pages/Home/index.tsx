@@ -7,6 +7,7 @@ import { UserItemProps } from '../../models/users'
 import BlockModal from '../../components/BlockModal'
 import UserProfileItem from '../../components/UserProfileItem'
 import Recommend from '../../components/Recommend'
+import { useEffect } from 'react'
 
 const Home = () => {
 
@@ -30,6 +31,12 @@ const Home = () => {
         setBlockUserId(null)
     }
 
+    const handleLike = (id: number) => {
+        setTimeout(() => {
+            setUsers(users => users.filter(user => user.id!==id))
+        }, 500)
+    }
+
     return (
         <Layout>
             {blockModalOn && <BlockModal onClickBlock={blockUser} onClickCancel={cancelBlock}/>}
@@ -45,12 +52,11 @@ const Home = () => {
                 showStatus={false}
                 showThumbs={false}
                 autoPlay={false}
-                
             >
-                <Recommend/>
                 {users.filter(user => user.id <= 1).map(user => (
                     <UserItem
                         onClickBlock={() => handleBlockModal(user.id)}
+                        onClickLike={() => handleLike(user.id)}
                         {...user}
                         key={user.id} />
                 )) as unknown as ReactElement<any, string | JSXElementConstructor<any>>}
@@ -58,6 +64,7 @@ const Home = () => {
                     onClickShow={() => {}}
                     users={users.filter(user => user.id > 1).map(user => user.user)}
                 />
+                <Recommend/>
             </ListWrapper>
         </Layout>
     )

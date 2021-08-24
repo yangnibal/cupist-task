@@ -115,3 +115,14 @@ export const SuperLikeButton = styled.div`
     align-items: center;
     justify-content: center;
 `
+
+export const HeartIconBox = styled.div`
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+`

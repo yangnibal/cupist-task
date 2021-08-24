@@ -58,6 +58,7 @@ export const Input = styled.input`
     padding: 10px 12px;
     font-size: 15px;
     width: 100%;
+    outline: none;
 `
 
 export const ButtonBox = styled.div`

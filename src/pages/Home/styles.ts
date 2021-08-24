@@ -26,7 +26,7 @@ export const Glam = styled.p`
     box-sizing: border-box;
 `
 
-export const HeaderText = styled.div`
+export const HeaderText = styled.p`
     font-size: 18px;
     margin-left: 15px;
     display: flex;
