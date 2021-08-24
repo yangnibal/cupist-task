@@ -12,6 +12,15 @@ const GlobalStyle = createGlobalStyle`
     }
     *{
         font-family: 'Noto Sans KR', sans-serif;
+        &::marker{
+            display: none!important;
+        }
+    }
+    [class^='control']{
+        display: none;
+    }
+    ul{
+        padding: 0;
     }
 `
 

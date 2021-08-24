@@ -1,22 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, ReactElement, JSXElementConstructor } from 'react'
 import Layout from '../../components/Layout'
 import { Glam, HeaderBox, ListWrapper, HeaderText } from './styles'
 import userList from '../../data/userList.json'
 import UserItem from '../../components/UserItem'
-import { Settings } from 'react-slick'
 import { UserItemProps } from '../../models/users'
 import BlockModal from '../../components/BlockModal'
 import UserProfileItem from '../../components/UserProfileItem'
 import Recommend from '../../components/Recommend'
-
-const sliderSettings: Settings = {
-    dots: false,
-    speed: 500,
-    slidesToScroll: 1,
-    infinite: false,
-    arrows: false,
-    vertical: true
-}
 
 const Home = () => {
 
@@ -48,15 +38,22 @@ const Home = () => {
                 <HeaderText>근처</HeaderText>
                 <HeaderText>라이브</HeaderText>
             </HeaderBox>
-            <ListWrapper>
+            <ListWrapper
+                axis='vertical'
+                showArrows={false}
+                showIndicators={false}
+                showStatus={false}
+                showThumbs={false}
+                autoPlay={false}
+                
+            >
                 <Recommend/>
                 {users.filter(user => user.id <= 1).map(user => (
                     <UserItem
                         onClickBlock={() => handleBlockModal(user.id)}
                         {...user}
-                        key={user.id}
-                    />
-                ))}
+                        key={user.id} />
+                )) as unknown as ReactElement<any, string | JSXElementConstructor<any>>}
                 <UserProfileItem
                     onClickShow={() => {}}
                     users={users.filter(user => user.id > 1).map(user => user.user)}

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Carousel } from 'react-responsive-carousel'
 
 export const HeaderBox = styled.div`
     height: 50px;
@@ -33,10 +34,9 @@ export const HeaderText = styled.div`
     color: rgb(157, 157, 157);
 `
 
-export const ListWrapper = styled.div`
+export const ListWrapper = styled(Carousel)`
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
     align-items: center;
     margin-top: 5px;
     padding-bottom: 75px;

@@ -10,6 +10,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
+    margin-bottom: 10px;
 `
 
 export const Item = styled.div`

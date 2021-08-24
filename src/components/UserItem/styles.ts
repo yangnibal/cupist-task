@@ -7,6 +7,7 @@ export const Container = styled.div`
     position: relative;
     display: flex;
     align-items: flex-end;
+    margin-bottom: 10px;
 `
 
 export const ProfileImg = styled.img`
