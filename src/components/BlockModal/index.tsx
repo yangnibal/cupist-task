@@ -11,7 +11,7 @@ const BlockModal: React.FC<Props> = ({
 }) => {
     return (
         <Container>
-            <Background/>
+            <Background onClick={onClickCancel}/>
             <ModalBox>
                 <Title>상대를 삭제하시겠어요?</Title>
                 <Message>이 상대는 더 이상 표시되지 않습니다</Message>

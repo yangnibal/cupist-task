@@ -7,20 +7,24 @@ interface Props {
     editable?: boolean
     multiline?: boolean
     placeholder?: string
+    onClick?: (type: string, value: string) => void
+    onChange?: (value: string) => void
 }
 
 const EditProfileItem: React.FC<Props> = ({
-    type, value, editable, multiline, placeholder
+    type, value, editable, multiline, placeholder, onClick, onChange
 }) => {
     return multiline ? (
-        <MContainer>
+        <MContainer onClick={() => onClick?.(type, value!)}>
             <Type>{type}</Type>
             <Input 
                 placeholder={placeholder}
+                value={value}
+                onChange={(e) => onChange?.(e.target.value)}
             />
         </MContainer>
     ) : (
-        <Container>
+        <Container onClick={() => onClick?.(type, value!)}>
             <Type>{type}</Type>
             <Value editable={editable===undefined ? true : editable}>{value}</Value>
         </Container>

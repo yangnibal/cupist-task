@@ -71,7 +71,7 @@ export const Button = styled.div`
     background-color: rgb(94, 156, 247);
     border-radius: 4px;
     text-align: center;
-    padding: 8px 0;
+    padding: 6px 0;
     font-size: 15px;
     font-weight: 500;
     color: #ffffff;

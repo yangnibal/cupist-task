@@ -1,26 +1,86 @@
 import React from 'react'
-import { Container, HeaderBox, Title, ContentBox, Divider, ProfileImgBox, ImgDesc, ProfileImgItem, EmptyProfileImgItemBox, EmptyProfileImgItem } from './styles'
+import { Container, HeaderBox, Title, ContentBox, Divider, ProfileImgBox, ImgDesc, ProfileImgItem, EmptyProfileImgItemBox, EmptyProfileImgItem, Spacer } from './styles'
 import { BsX } from 'react-icons/bs'
 import { useHistory } from 'react-router-dom'
 import EditProfileItem from '../../components/EditProfileItem'
 import myInfo from '../../data/myInfo.json'
+import { useState } from 'react'
+import { User } from '../../models/users'
+import EditModal from '../../components/EditModal'
+import { useEffect } from 'react'
+import { parseUserInfoType } from '../../utils/common'
 
 const EditProfile = () => {
 
     const history = useHistory()
 
+    const [ user, setUser ] = useState<Partial<User>>(myInfo)
+    const [ modalData, setModalData ] = useState<{ type: string, value: string }>({
+        type: '',
+        value: ''
+    })
+    const [ editModalOn, setEditModalOn ] = useState<boolean>(false)
+
+    const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(e.target.files?.[0]){
+            let reader = new FileReader()
+            console.log('file')
+            reader.onload = (ev) => {
+                let text = reader.result
+                console.log('onload')
+                if(user.profileImgs){
+                    let firstEmptyFileIndex = user.profileImgs.findIndex(img => img==='')
+                    let newProfileImgs = user.profileImgs
+                    newProfileImgs[firstEmptyFileIndex] = ev.target?.result as string
+                    setUser({...user, profileImgs: newProfileImgs})
+                }
+                console.log(text)
+            }
+            reader.readAsDataURL(e.target.files[0])
+        } else {
+            
+        }
+    }
+
+    const showModal = (type: string, value: string) => {
+        setModalData({
+            type: type,
+            value: value
+        })
+        setEditModalOn(true)
+    }
+
+    const cancelEdit = () => {
+        setEditModalOn(false)
+        setModalData({
+            type: '',
+            value: ''
+        })
+    }
+
+    const submitEdit = (value: string) => {
+        const type = parseUserInfoType(modalData.type)
+        setUser({
+            ...user,
+            [type]: value
+        })
+        setEditModalOn(false)
+    }
+
     return (
         <Container>
+            {editModalOn && <EditModal {...modalData} onClickCancel={cancelEdit} onSubmit={submitEdit}/>}
+            <input type='file' style={{ display: 'none' }} onChange={uploadImage} id='file'/>
             <HeaderBox>
                 <BsX size={30} onClick={() => history.goBack()}/>
                 <Title>프로필 수정</Title>
-                <BsX size={30} color='#ffffff'/>
+                <Spacer/>
             </HeaderBox>
             <ProfileImgBox>
-                {[0, 1, 2, 3, 4, 5].map(index => myInfo.profileImgs[index] ? (
-                    <ProfileImgItem src={myInfo.profileImgs[index]} key={index}/>
+                {user.profileImgs?.map((img, index) => img ? (
+                    <ProfileImgItem src={img} key={index}/>
                 ) : (
-                    <EmptyProfileImgItemBox key={index}>
+                    <EmptyProfileImgItemBox key={index} htmlFor='file'>
                         <EmptyProfileImgItem/>
                     </EmptyProfileImgItemBox>
                 ))}
@@ -28,20 +88,20 @@ const EditProfile = () => {
             <ImgDesc>다양한 매력을 보여줄 수 있는 사진을 올려주세요 <b>더 알아보기</b></ImgDesc>
             <ContentBox>
                 <Divider/>
-                <EditProfileItem type='닉네임' value={myInfo.username}/>
-                <EditProfileItem type='성별' value={myInfo.gender} editable={false}/>
+                <EditProfileItem type='닉네임' value={user.username} onClick={showModal}/>
+                <EditProfileItem type='성별' value={user.gender} editable={false}/>
                 <EditProfileItem type='생일' value='2002-02-12'/>
-                <EditProfileItem type='위치' value={myInfo.region}/>
+                <EditProfileItem type='위치' value={user.region}/>
                 <Divider/>
-                <EditProfileItem type='소개' value={myInfo.introduce} multiline placeholder='회원님의 매력을 간단하게 소개해주세요'/>
+                <EditProfileItem type='소개' value={user.introduce} multiline placeholder='회원님의 매력을 간단하게 소개해주세요' onChange={(value) => setUser({...user, introduce: value})}/>
                 <Divider/>
-                <EditProfileItem type='키' value={String(myInfo.height)}/>
+                <EditProfileItem type='키' value={`${String(user.height)}cm`}/>
                 <EditProfileItem type='체형' value='보통'/>
                 <Divider/>
                 <EditProfileItem type='직장' value=''/>
-                <EditProfileItem type='직업' value={myInfo.job}/>
+                <EditProfileItem type='직업' value={user.job}/>
                 <EditProfileItem type='학력' value='고등학교'/>
-                <EditProfileItem type='학교' value={myInfo.school}/>
+                <EditProfileItem type='학교' value={user.school}/>
                 <Divider/>
                 <EditProfileItem type='성격' value='털털한'/>
                 <EditProfileItem type='종교' value='무교'/>

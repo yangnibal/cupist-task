@@ -33,4 +33,5 @@ export const Input = styled.input`
     padding-top: 5px;
     box-sizing: border-box;
     margin-top: 3px;
+    outline: none;
 `

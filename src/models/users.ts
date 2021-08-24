@@ -8,6 +8,7 @@ export interface User {
     school: string
     gender: string
     profileImg: string
+    profileImgs?: string[]
 }
 
 export enum UserItemEnumType {

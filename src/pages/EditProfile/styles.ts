@@ -60,7 +60,7 @@ export const ProfileImgItem = styled.img`
     object-fit: cover;
 `
 
-export const EmptyProfileImgItemBox = styled.div`
+export const EmptyProfileImgItemBox = styled.label`
     width: 32vw;
     height: 32vw;
     background-color: #e4e4e4;
@@ -73,4 +73,8 @@ export const EmptyProfileImgItem = styled(FaUser)`
     width: 80%;
     color: #ffffff;
     height: 80%;
+`
+
+export const Spacer = styled.div`
+    width: 30px;
 `
