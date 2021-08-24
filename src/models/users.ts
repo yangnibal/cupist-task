@@ -9,6 +9,10 @@ export interface User {
     gender: string
     profileImg: string
     profileImgs?: string[]
+    attractive?: string
+    hobby?: string
+    lifestyle?: string
+    birthday?: string
 }
 
 export enum UserItemEnumType {

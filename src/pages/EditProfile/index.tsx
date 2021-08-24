@@ -64,6 +64,13 @@ const EditProfile = () => {
         setEditModalOn(false)
     }
 
+    const onChange = (type: string, value: string) => {
+        setUser({
+            ...user,
+            [type]: value
+        })
+    }
+
     return (
         <Container>
             {editModalOn && <EditModal {...modalData} onClickCancel={cancelEdit} onSubmit={submitEdit}/>}
@@ -87,10 +94,16 @@ const EditProfile = () => {
                 <Divider/>
                 <EditProfileItem type='닉네임' value={user.username} onClick={showModal}/>
                 <EditProfileItem type='성별' value={user.gender} editable={false}/>
-                <EditProfileItem type='생일' value='2002-02-12'/>
+                <EditProfileItem type='생일' value={user.birthday}/>
                 <EditProfileItem type='위치' value={user.region}/>
                 <Divider/>
-                <EditProfileItem type='소개' value={user.introduce} multiline placeholder='회원님의 매력을 간단하게 소개해주세요' onChange={(value) => setUser({...user, introduce: value})}/>
+                <EditProfileItem 
+                    type='소개' 
+                    value={user.introduce} 
+                    multiline
+                    placeholder='회원님의 매력을 간단하게 소개해주세요' 
+                    onChange={(value) => onChange('introduce', value)}
+                />
                 <Divider/>
                 <EditProfileItem type='키' value={`${String(user.height)}cm`}/>
                 <EditProfileItem type='체형' value='보통'/>
@@ -107,9 +120,27 @@ const EditProfile = () => {
                 <EditProfileItem type='혈액형' value='O형'/>
                 <EditProfileItem type='인종' value='한국인'/>
                 <Divider/>
-                <EditProfileItem type='매력 포인트' multiline placeholder='입력해주세요'/>
-                <EditProfileItem type='관심사' multiline placeholder='입력해주세요'/>
-                <EditProfileItem type='라이프 스타일' multiline placeholder='입력해주세요'/>
+                <EditProfileItem 
+                    type='매력 포인트' 
+                    multiline 
+                    placeholder='입력해주세요' 
+                    value={user.attractive} 
+                    onChange={(value) => onChange('attractive', value)}
+                />
+                <EditProfileItem 
+                    type='관심사' 
+                    multiline 
+                    placeholder='입력해주세요' 
+                    value={user.hobby}
+                    onChange={(value) => onChange('hobby', value)}
+                />
+                <EditProfileItem 
+                    type='라이프 스타일' 
+                    multiline 
+                    placeholder='입력해주세요' 
+                    value={user.lifestyle}
+                    onChange={(value) => onChange('lifestyle', value)}
+                />
             </ContentBox>
         </Container>
     )

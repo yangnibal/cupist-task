@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Carousel } from 'react-responsive-carousel'
 
 export const HeaderBox = styled.div`
-    height: 50px;
+    height: 40px;
     border-bottom: 1px solid #f1f1f1;
     display: flex;
     flex-direction: row;
@@ -12,12 +12,13 @@ export const HeaderBox = styled.div`
     background-color: #ffffff;
     z-index: 99;
     width: 100%;
+    padding-top: 10px;
 `
 
 export const Glam = styled.p`
     font-weight: bold;
     color: #000000;
-    font-size: 18px;
+    font-size: 20px;
     margin-left: 15px;
     height: 100%;
     display: flex;
