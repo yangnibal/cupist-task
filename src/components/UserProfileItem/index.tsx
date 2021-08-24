@@ -1,5 +1,5 @@
 import React from 'react'
-import { User, UserItemProps } from '../../models/users'
+import { User } from '../../models/users'
 import { Button, Container, Item, Job, ProfileImg, Region, UserInfoBox, Username } from './styles'
 
 interface Props {

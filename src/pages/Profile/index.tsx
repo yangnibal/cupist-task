@@ -2,17 +2,20 @@ import React from 'react'
 import Layout from '../../components/Layout'
 import { ContentBox, Divider, EditButton, HeaderBox, Job, ProfileBox, ProfileImg, UserInfoBox, Username } from './styles'
 import { BsGearFill } from 'react-icons/bs'
-import myInfo from '../../data/myInfo.json'
 import ProfileItem from '../../components/ProfileItem'
 import { RiVipDiamondFill, RiStoreFill, RiShieldFill, RiUserAddFill } from 'react-icons/ri'
 import { useHistory } from 'react-router-dom'
 import { PATHS } from '../../constants/paths'
+import { useRecoilValue } from 'recoil'
+import { userInfoAtom } from '../../store/users'
 
 const ICON_SIZE = 18
 
 const Profile = () => {
 
     const history = useHistory()
+
+    const userInfo = useRecoilValue(userInfoAtom)
 
     return (
         <Layout>
@@ -21,10 +24,10 @@ const Profile = () => {
             </HeaderBox>
             <ContentBox>
                 <UserInfoBox>
-                    <ProfileImg src={myInfo.profileImgs[0]}/>
+                    <ProfileImg src={userInfo.profileImgs?.[0]}/>
                     <ProfileBox>
-                        <Username>{myInfo.username}, {myInfo.age}</Username>
-                        <Job>{myInfo.job} · {myInfo.region}</Job>
+                        <Username>{userInfo.username}, {userInfo.age}</Username>
+                        <Job>{userInfo.job} · {userInfo.region}</Job>
                         <EditButton onClick={() => history.push(PATHS.PROFILE + PATHS.EDIT)}>프로필 수정</EditButton>
                     </ProfileBox>
                 </UserInfoBox>

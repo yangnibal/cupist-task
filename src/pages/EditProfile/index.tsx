@@ -3,18 +3,18 @@ import { Container, HeaderBox, Title, ContentBox, Divider, ProfileImgBox, ImgDes
 import { BsX } from 'react-icons/bs'
 import { useHistory } from 'react-router-dom'
 import EditProfileItem from '../../components/EditProfileItem'
-import myInfo from '../../data/myInfo.json'
 import { useState } from 'react'
-import { User } from '../../models/users'
 import EditModal from '../../components/EditModal'
-import { useEffect } from 'react'
 import { parseUserInfoType } from '../../utils/common'
+import { useRecoilState } from 'recoil'
+import { userInfoAtom } from '../../store/users'
 
 const EditProfile = () => {
 
     const history = useHistory()
 
-    const [ user, setUser ] = useState<Partial<User>>(myInfo)
+    const [ user, setUser ] = useRecoilState(userInfoAtom)
+
     const [ modalData, setModalData ] = useState<{ type: string, value: string }>({
         type: '',
         value: ''
@@ -24,17 +24,14 @@ const EditProfile = () => {
     const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
         if(e.target.files?.[0]){
             let reader = new FileReader()
-            console.log('file')
             reader.onload = (ev) => {
-                let text = reader.result
-                console.log('onload')
                 if(user.profileImgs){
                     let firstEmptyFileIndex = user.profileImgs.findIndex(img => img==='')
-                    let newProfileImgs = user.profileImgs
+                    let newProfileImgs = [...user.profileImgs]
                     newProfileImgs[firstEmptyFileIndex] = ev.target?.result as string
+                    console.log(newProfileImgs)
                     setUser({...user, profileImgs: newProfileImgs})
                 }
-                console.log(text)
             }
             reader.readAsDataURL(e.target.files[0])
         } else {

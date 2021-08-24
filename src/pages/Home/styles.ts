@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Slider from 'react-slick'
 
 export const HeaderBox = styled.div`
     height: 50px;

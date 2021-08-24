@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, IconBox } from './styles'
-import { BsHouseDoorFill, BsHouseDoor, BsGridFill, BsGrid, BsHeart, BsHeartFill, BsPersonFill, BsPerson, BsChatFill, BsChat } from 'react-icons/bs'
+import { BsHouseDoorFill, BsHouseDoor, BsGrid, BsHeart, BsPersonFill, BsPerson, BsChat } from 'react-icons/bs'
 import { useHistory, useLocation } from 'react-router-dom'
 import { PATHS } from '../../constants/paths'
 
