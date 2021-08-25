@@ -45,14 +45,7 @@ const Home = () => {
                 <HeaderText>근처</HeaderText>
                 <HeaderText>라이브</HeaderText>
             </HeaderBox>
-            <ListWrapper
-                axis='vertical'
-                showArrows={false}
-                showIndicators={false}
-                showStatus={false}
-                showThumbs={false}
-                autoPlay={false}
-            >
+            <ListWrapper>
                 {users.filter(user => user.id <= 1).map(user => (
                     <UserItem
                         onClickBlock={() => handleBlockModal(user.id)}

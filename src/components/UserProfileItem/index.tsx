@@ -14,7 +14,7 @@ const UserProfileItem: React.FC<Props> = ({
         <Container>
             {users.map((user, index) => (
                 <Item key={index}>
-                    <ProfileImg src={user.profileImg}/>
+                    <ProfileImg src={user.profileImgs?.[0]}/>
                     <UserInfoBox>
                         <Username>{user.username}, {user.age}</Username>
                         <Job>{user.job}</Job>

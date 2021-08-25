@@ -8,6 +8,7 @@ export const Container = styled.div`
     display: flex;
     align-items: flex-end;
     margin-bottom: 10px;
+    justify-content: center;
 `
 
 export const ProfileImg = styled.img`
@@ -125,4 +126,30 @@ export const HeartIconBox = styled.div`
     justify-content: center;
     width: 100%;
     height: 100%;
+`
+
+export const ImgSelectBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 8px;
+    height: 2px;
+    z-index: 101;
+`
+
+export const ItemWrapper = styled.div`
+    height: 8px;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    background-color: transparent;
+`
+
+export const ImgSelectItem = styled.div<{ selected?: boolean }>`
+    height: 3px;
+    border-radius: 2px;
+    width: 100%;
+    margin: 0 2px;
+    background-color: ${props => props.selected ? '#ffffff' : '#666666'};
 `

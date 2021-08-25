@@ -7,7 +7,6 @@ export interface User {
     height: number
     school: string
     gender: string
-    profileImg: string
     profileImgs?: string[]
     attractive?: string
     hobby?: string

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { UserItemProps } from '../../models/users'
-import { Container, ProfileImg, RecommendBox, UserInfoBox, ButtonBox, BlockButton, LikeButton, SuperLikeButton, Username, Introduce, ProfileBox, Job, Height, HeartIconBox } from './styles'
+import { Container, ProfileImg, RecommendBox, UserInfoBox, ButtonBox, BlockButton, LikeButton, SuperLikeButton, Username, Introduce, ProfileBox, Job, Height, HeartIconBox, ImgSelectBox, ImgSelectItem, ItemWrapper } from './styles'
 import { BsStarFill, BsX } from 'react-icons/bs'
 import { AiFillHeart } from 'react-icons/ai'
 
@@ -16,6 +16,7 @@ const UserItem: React.FC<Props> = ({
 }) => {
 
     const [ showLike, setShowLike ] = useState<boolean>(false)
+    const [ selectedProfileImg, setSelectedProfileImg ] = useState<number>(0)
 
     const handleLike = () => {
         setShowLike(true)
@@ -29,7 +30,14 @@ const UserItem: React.FC<Props> = ({
                     <AiFillHeart size={HEART_ICON_SIZE} color='#ffffff'/>
                 </HeartIconBox>
             )}
-            <ProfileImg src={user.profileImg}/>
+            <ProfileImg src={user.profileImgs?.[selectedProfileImg]}/>
+            <ImgSelectBox>
+                {Array.from(Array(user.profileImgs?.length).keys()).map(index => (
+                    <ItemWrapper onClick={() => setSelectedProfileImg(index)} key={index}>
+                        <ImgSelectItem selected={selectedProfileImg===index}/>
+                    </ItemWrapper>
+                ))}
+            </ImgSelectBox>
             <UserInfoBox>
                 {isRecommend && <RecommendBox>오늘의 추천</RecommendBox>}
                 <Username>{user.username}, {user.age}</Username>

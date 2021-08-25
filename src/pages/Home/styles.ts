@@ -35,7 +35,7 @@ export const HeaderText = styled.p`
     color: rgb(157, 157, 157);
 `
 
-export const ListWrapper = styled(Carousel)`
+export const ListWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
