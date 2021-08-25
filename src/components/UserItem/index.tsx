@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { UserItemProps } from '../../models/users'
-import { Container, ProfileImg, RecommendBox, UserInfoBox, ButtonBox, BlockButton, LikeButton, SuperLikeButton, Username, Introduce, ProfileBox, Job, Height, HeartIconBox, ImgSelectBox, ImgSelectItem, ItemWrapper } from './styles'
+import { Container, ProfileImg, RecommendBox, UserInfoBox, ButtonBox, BlockButton, LikeButton, SuperLikeButton, Username, Introduce, ProfileBox, Job, Height, HeartIconBox, ImgSelectBox, ImgSelectItem, ItemWrapper, TouchActionDiv } from './styles'
 import { BsStarFill, BsX } from 'react-icons/bs'
 import { AiFillHeart } from 'react-icons/ai'
 
@@ -31,6 +31,8 @@ const UserItem: React.FC<Props> = ({
                 </HeartIconBox>
             )}
             <ProfileImg src={user.profileImgs?.[selectedProfileImg]}/>
+            <TouchActionDiv direction='left' onClick={() => setSelectedProfileImg(index => index===0 ? user.profileImgs?.length! : index - 1 )}/>
+            <TouchActionDiv direction='right' onClick={() => setSelectedProfileImg(index => index===user.profileImgs?.length ? 0 : index + 1)}/>
             <ImgSelectBox>
                 {Array.from(Array(user.profileImgs?.length).keys()).map(index => (
                     <ItemWrapper onClick={() => setSelectedProfileImg(index)} key={index}>

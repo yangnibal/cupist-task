@@ -21,6 +21,7 @@ export const ProfileImg = styled.img`
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
+    z-index: 0;
 `
 
 export const UserInfoBox = styled.div`
@@ -135,7 +136,7 @@ export const ImgSelectBox = styled.div`
     position: absolute;
     top: 8px;
     height: 2px;
-    z-index: 101;
+    z-index: 9;
 `
 
 export const ItemWrapper = styled.div`
@@ -152,4 +153,16 @@ export const ImgSelectItem = styled.div<{ selected?: boolean }>`
     width: 100%;
     margin: 0 2px;
     background-color: ${props => props.selected ? '#ffffff' : '#666666'};
+`
+
+export const TouchActionDiv = styled.div<{ direction: 'left' | 'right' }>`
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: ${props => props.direction==='left' ? 0 : '50%'};
+    right: ${props => props.direction==='right' ? 0 : '50%'};
+    height: 100%;
+    width: 50%;
+    background-color: transparent;
+    z-index: 5;
 `
