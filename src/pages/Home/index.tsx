@@ -52,7 +52,7 @@ const Home = () => {
                         onClickLike={() => handleLike(user.id)}
                         {...user}
                         key={user.id} />
-                )) as unknown as ReactElement<any, string | JSXElementConstructor<any>>}
+                ))}
                 <UserProfileItem
                     onClickShow={() => {}}
                     users={users.filter(user => user.id > 1).map(user => user.user)}
