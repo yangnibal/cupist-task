@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { parsePostPosition } from '../../utils/common'
 import { Container, Background, ModalBox, Title, ButtonBox, SubmitButton, BackButton, InputBox, Input } from './styles'
 
 interface Props {
@@ -19,7 +20,7 @@ const EditModal: React.FC<Props> = ({
         <Container>
             <Background onClick={onClickCancel}/>
             <ModalBox>
-                <Title>{type}을 변경하시겠어요?</Title>
+                <Title>{parsePostPosition(type!)} 변경하시겠어요?</Title>
                 <InputBox>
                     <Input 
                         placeholder={type}

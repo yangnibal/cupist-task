@@ -12,6 +12,15 @@ export interface User {
     hobby?: string
     lifestyle?: string
     birthday?: string
+    bodytype?: string
+    academicBackground?: string
+    bloodType?: string
+    religion?: string
+    smoke?: string
+    drink?: string
+    company?: string
+    race?: string[]
+    personality?: string[]
 }
 
 export enum UserItemEnumType {

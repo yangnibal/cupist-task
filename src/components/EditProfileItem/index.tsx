@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, MContainer, Type, Value, Input } from './styles'
+import { Container, MContainer, Type, Value, Input, SingleLineInput } from './styles'
 
 interface Props {
     type: string
@@ -26,7 +26,15 @@ const EditProfileItem: React.FC<Props> = ({
     ) : (
         <Container onClick={() => onClick?.(type, value!)}>
             <Type>{type}</Type>
-            <Value editable={editable===undefined ? true : editable}>{value}</Value>
+            {onClick ? (
+                <Value editable={editable===undefined ? true : editable}>{value}</Value>
+            ) : (
+                <SingleLineInput
+                    value={value}
+                    onChange={(e) => onChange?.(e.target.value)}
+                    placeholder='입력해주세요'
+                />
+            )}
         </Container>
     )
 }

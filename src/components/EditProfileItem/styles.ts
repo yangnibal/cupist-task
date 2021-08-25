@@ -35,3 +35,11 @@ export const Input = styled.input`
     margin-top: 3px;
     outline: none;
 `
+
+export const SingleLineInput = styled.input`
+    outline: none;
+    font-size: 16px;
+    border: none;
+    width: 65%;
+    color: rgb(94, 156, 247);
+`

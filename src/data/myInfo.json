@@ -15,5 +15,13 @@
         "",
         ""
     ],
-    "birthday": "2002-02-12"
+    "birthday": "2002-02-12",
+    "bodytype": "보통",
+    "drink": "안 함",
+    "smoke": "안 함",
+    "religion": "무교",
+    "academicBackground": "대학교",
+    "bloodType": "O형",
+    "race": [],
+    "personality": []
 }
